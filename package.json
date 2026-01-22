@@ -1,0 +1,38 @@
+{
+  "name": "hosting-panel",
+  "version": "1.0.0",
+  "description": "Production-ready hosting management panel for Ubuntu 22.04",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "setup": "node scripts/setup.js"
+  },
+  "keywords": ["hosting", "panel", "control-panel", "server-management"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/static": "^7.0.0",
+    "@fastify/view": "^9.0.0",
+    "@fastify/session": "^10.0.0",
+    "@fastify/cookie": "^9.0.0",
+    "@fastify/rate-limit": "^9.0.0",
+    "@fastify/helmet": "^11.0.0",
+    "fastify": "^4.25.0",
+    "bcrypt": "^5.1.1",
+    "mysql2": "^3.6.5",
+    "better-sqlite3": "^9.2.2",
+    "ejs": "^3.1.9",
+    "speakeasy": "^2.0.0",
+    "qrcode": "^1.5.3",
+    "nodemailer": "^6.9.7",
+    "archiver": "^6.0.1",
+    "tar": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

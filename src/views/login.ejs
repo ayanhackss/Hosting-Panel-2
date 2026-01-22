@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hosting Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: #ffffff;
+            padding: 48px;
+            border: 3px solid #000000;
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .logo .icon {
+            font-size: 56px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 8px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #000000;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #000000;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #000000;
+            background: #ffffff;
+            color: #000000;
+            font-size: 15px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        input:focus {
+            outline: none;
+            background: #000000;
+            color: #ffffff;
+        }
+
+        input::placeholder {
+            color: #999999;
+        }
+
+        input:focus::placeholder {
+            color: #666666;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #000000;
+            color: #ffffff;
+            border: 2px solid #000000;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .error {
+            background: #000000;
+            color: #ffffff;
+            padding: 14px 16px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 2px solid #000000;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            color: #000000;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 32px 24px;
+                margin: 20px;
+                border-width: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <div class="icon">🚀</div>
+            <h1>Hosting Panel</h1>
+            <p class="subtitle">Secure Admin Access</p>
+        </div>
+
+        <% if (error) { %>
+            <div class="error">⚠️ <%= error %>
+            </div>
+            <% } %>
+
+                <form method="POST" action="/auth/login">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter username" required
+                            autofocus>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter password" required>
+                    </div>
+
+                    <% if (typeof show_totp !=='undefined' && show_totp) { %>
+                        <div class="form-group">
+                            <label for="totp_token">2FA Code</label>
+                            <input type="text" id="totp_token" name="totp_token" maxlength="6" pattern="[0-9]{6}"
+                                placeholder="000000" required>
+                        </div>
+                        <% } %>
+
+                            <button type="submit">Sign In</button>
+                </form>
+
+                <div class="footer">
+                    Hosting Panel v1.0
+                </div>
+    </div>
+</body>
+
+</html>
