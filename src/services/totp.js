@@ -4,7 +4,7 @@ const crypto = require('crypto');
 
 const generateSecret = async (username) => {
     const secret = speakeasy.generateSecret({
-        name: `Hosting Panel (${username})`,
+        name: `NexPanel (${username})`,
         length: 32
     });
 

@@ -1,14 +1,19 @@
 {
-  "name": "hosting-panel",
+  "name": "nexpanel",
   "version": "1.0.0",
-  "description": "Production-ready hosting management panel for Ubuntu 22.04",
+  "description": "NexPanel - Next-generation hosting management panel for Ubuntu 22.04",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "setup": "node scripts/setup.js"
   },
-  "keywords": ["hosting", "panel", "control-panel", "server-management"],
+  "keywords": [
+    "hosting",
+    "panel",
+    "control-panel",
+    "server-management"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {

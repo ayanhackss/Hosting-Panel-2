@@ -76,9 +76,9 @@ const start = async () => {
   try {
     const port = process.env.PORT || 8080;
     const host = process.env.HOST || '0.0.0.0';
-    
+
     await fastify.listen({ port, host });
-    console.log(`\n🚀 Hosting Panel running on http://${host}:${port}`);
+    console.log(`\n🚀 NexPanel running on http://${host}:${port}`);
     console.log(`📊 Dashboard: http://localhost:${port}`);
   } catch (err) {
     fastify.log.error(err);
